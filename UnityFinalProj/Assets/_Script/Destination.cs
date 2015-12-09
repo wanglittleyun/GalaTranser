@@ -19,14 +19,14 @@ public class Destination : MonoBehaviour {
         else if (light.GetComponent<Light>().intensity <= 0.2f && lightState == 0)
         {
             lightState = 1;
-            Debug.Log("change light state0");
+           // Debug.Log("change light state0");
         }
         if (light.GetComponent<Light>().intensity < 1.2f && lightState == 1)
             light.GetComponent<Light>().intensity += 0.1f;
         else if (light.GetComponent<Light>().intensity >= 1.2f && lightState == 1)
         {
             lightState = 0;
-            Debug.Log("change light state");
+           /// Debug.Log("change light state");
         }
 	}
 

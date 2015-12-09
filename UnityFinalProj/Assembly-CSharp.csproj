@@ -100,6 +100,7 @@
      <Compile Include="Assets\_Script\Tags.cs" />
      <Compile Include="Assets\_Script\click.cs" />
      <Compile Include="Assets\_Script\move.cs" />
+     <Compile Include="Assets\_Script\pointer.cs" />
      <None Include="Assets\SpaceUnity\Read First.txt" />
      <None Include="Assets\Modular Space Raider\readme.txt" />
      <None Include="Assets\Modular Space Raider\Shader\how_to_use.txt" />

@@ -8,8 +8,8 @@ public class MenuManager : MonoBehaviour {
 	void Start(){
         menu = GameObject.Find("MainMenu");
         CurrentMenu = menu.GetComponent<Menu>();
-        CurrentMenu.GetComponent<Animator>().SetBool("IsOpen", true); ;
-        CurrentMenu.GetComponent<CanvasGroup>().blocksRaycasts = CurrentMenu.GetComponent<CanvasGroup>().interactable = true; ;
+        //CurrentMenu.GetComponent<Animator>().SetBool("IsOpen", true); ;
+        //CurrentMenu.GetComponent<CanvasGroup>().blocksRaycasts = CurrentMenu.GetComponent<CanvasGroup>().interactable = true; ;
 		Debug.Log("start");
         
 		ShowMenu (CurrentMenu);

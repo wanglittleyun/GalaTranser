@@ -70,7 +70,7 @@
      <None Include="Assets\_Shader\NewSurfaceShader.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>D:/GitHub/UnityFinalProj/UnityFinalProj/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/GitHub/GalaTranser/UnityFinalProj/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>

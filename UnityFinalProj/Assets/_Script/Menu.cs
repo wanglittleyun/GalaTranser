@@ -17,14 +17,15 @@ public class Menu : MonoBehaviour {
         
 		_animator.SetBool ("IsOpen", IsOpen);
 		IsOpen = _animator.GetBool ("IsOpen");
-        //_canvasGroup.blocksRaycasts = _canvasGroup.interactable = true;
-		if (!_animator.GetCurrentAnimatorStateInfo (0).IsName ("Open")) {
+        //GetComponent<CanvasGroup>().alpha = 1f; _canvasGroup.blocksRaycasts = _canvasGroup.interactable = true;
+		if (!IsOpen){//!_animator.GetCurrentAnimatorStateInfo (0).IsName ("Open")) {
 			_canvasGroup.blocksRaycasts = _canvasGroup.interactable = false;
             //Debug.Log("false:"+IsOpen);
+           // _canvasGroup.alpha = 0f;
 		} else {
 			_canvasGroup.blocksRaycasts = _canvasGroup.interactable = true;
-            /*Debug.Log(GetComponent<CanvasGroup>().alpha);
-            GetComponent<CanvasGroup>().alpha = 1f;*/
+            Debug.Log(GetComponent<CanvasGroup>().alpha);
+            //_canvasGroup.alpha = 1f;
             
 		}
        
