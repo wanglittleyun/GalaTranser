@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Script/MenuManager.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EarthSimplePlanets/Scripts/RotationAroundPlanet.js">
     <Files>
-      <File FileName="Assets/_Script/Menu.cs" Line="28" Column="21" />
-      <File FileName="Assets/_Script/MenuManager.cs" Line="24" Column="27" />
+      <File FileName="Assets/EarthSimplePlanets/Scripts/RotationAroundPlanet.js" Line="62" Column="58" />
+      <File FileName="Assets/EarthSimplePlanets/Scripts/SmoothMouseOrbit.js" Line="28" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
