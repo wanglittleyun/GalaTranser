@@ -5,12 +5,12 @@ public class PlanetGravity : MonoBehaviour {
 	public GameObject player;
 	public float Power_distance = 2.0f; 
 	public float forceMagnitude = 100000.0f;
-	warning warnship;
+//	warning warnship;
 	bool inSight;
 	// Use this for initialization
 	void Start () {
 		inSight = false;
-		warnship = player.GetComponent<warning> ();
+//		warnship = player.GetComponent<warning> ();
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class PlanetGravity : MonoBehaviour {
 			Vector3 force = (transform.position - player.transform.position) * forceMagnitude
 				/ Mathf.Pow (Vector3.Magnitude (transform.position - player.transform.position), Power_distance);
 			player.GetComponent<Rigidbody> ().AddForce (force);
-			warnship.gravity_warn(transform.position, 1);
+//			warnship.gravity_warn(transform.position, 1);
 		}
 	}
 
@@ -37,4 +37,5 @@ public class PlanetGravity : MonoBehaviour {
 			inSight = false;
 		}
 	}
+
 }
