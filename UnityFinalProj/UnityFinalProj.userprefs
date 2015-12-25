@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Script/PlanetGravity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Script/warning.cs">
     <Files>
-      <File FileName="Assets/_Script/PlanetGravity.cs" Line="13" Column="3" />
+      <File FileName="Assets/_Script/PlanetGravity.cs" Line="38" Column="41" />
+      <File FileName="Assets/_Script/warning.cs" Line="12" Column="3" />
+      <File FileName="Assets/_Script/lookat.cs" Line="15" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
