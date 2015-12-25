@@ -102,6 +102,7 @@
      <Compile Include="Assets\_Script\click.cs" />
      <Compile Include="Assets\_Script\move.cs" />
      <Compile Include="Assets\_Script\pointer.cs" />
+     <Compile Include="Assets\_Script\warning.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
