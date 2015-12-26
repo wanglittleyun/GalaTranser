@@ -96,6 +96,8 @@
      <Compile Include="Assets\_Script\GameController.cs" />
      <Compile Include="Assets\_Script\Menu.cs" />
      <Compile Include="Assets\_Script\MenuManager.cs" />
+     <Compile Include="Assets\_Script\MetorField.cs" />
+     <Compile Include="Assets\_Script\MetorMove.cs" />
      <Compile Include="Assets\_Script\PlanetGravity.cs" />
      <Compile Include="Assets\_Script\PlayerController.cs" />
      <Compile Include="Assets\_Script\Tags.cs" />
