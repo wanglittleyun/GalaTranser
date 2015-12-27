@@ -184,5 +184,13 @@ public class move : MonoBehaviour {
     {
         Hp -= 10;
     }
-    
+    // called when hit renew unit
+	public void heal(){
+		if (Hp <= 90)
+			Hp += 10;
+	}
+	// Face to destination
+	public void faceToDestination(){
+
+	}
 }

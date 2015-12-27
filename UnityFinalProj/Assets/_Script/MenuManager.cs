@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour {
 	public void LoadGame(){
         //menu = GameObject.Find("MainMenu");
         Application.LoadLevel (1);
+		Tags.test = false;
 	}
     public void Exit()
     {

@@ -24,14 +24,14 @@ public class MetorTrigger : MonoBehaviour {
 	// when player enter the trigger field, set the relevant bool to true
 	void OnTriggerEnter(Collider other){
 		if (other.tag == Tags.Player) {
-			Debug.Log ("Player Enter");
+//			Debug.Log ("Player Enter");
 			controller.activated = true;
 		}
 	}
 	// when player leave the trigger field, set the relevant bool to false
 	void OnTriggerExit(Collider other){
 		if (other.tag == Tags.Player) {
-			Debug.Log ("Player Leaving");
+//			Debug.Log ("Player Leaving");
 			controller.activated = false;
 		}
 	}

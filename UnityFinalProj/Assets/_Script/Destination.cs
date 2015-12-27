@@ -8,6 +8,7 @@ public class Destination : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //GameController initialization
+//		Debug.Log (Tags.test);
         controller = GameObject.FindGameObjectWithTag(Tags.GameController).GetComponent<GameController>();
 	}
 	

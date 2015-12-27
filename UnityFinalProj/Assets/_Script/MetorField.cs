@@ -37,12 +37,12 @@ public class MetorField : MonoBehaviour {
 	void generateMetors(){
 		int numbers = (int)(density * maxNumber);
 		for (int index = 0; index < numbers; index++) {
-			Debug.Log ("start to generate Coordinates");
+//			Debug.Log ("start to generate Coordinates");
 			Vector3 pos = new Vector3(transform.position.x - range,
 			                          Random.Range (transform.position.y - range, transform.position.y+range),
 			                          Random.Range (transform.position.z - range, transform.position.z+range));
 			if(!checkCollison(pos)){
-				Debug.Log ("Ready to Instantiate new Object");
+//				Debug.Log ("Ready to Instantiate new Object");
 				coordinates.Add(pos);
 				int flag = Random.Range(0,7);
 				GameObject clone = (GameObject)Instantiate(Metors[flag], pos, Quaternion.identity);
