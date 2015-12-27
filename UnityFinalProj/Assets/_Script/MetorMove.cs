@@ -2,22 +2,19 @@
 using System.Collections;
 
 public class MetorMove : MonoBehaviour {
-	Vector3 moveOrientation;
-	float moveSpeed;
-//	float rotateSpeed;
-
-	public float minSpeed = 5.0f;
-	public float maxSpeed = 20.0f;
-//	public float minRotateSpeed = 5.0f;
-//	public float maxRotateSpeed = 20.0f;
+	//maximum life time of metor
+	//destory the gameobject after such time flag
+	public int maxmumLifeTime = 20;
+	
 	// Use this for initialization
 	void Start () {
-	
+
+		StartCoroutine (DestoryOnTime());
+
 	}
 
 	void Awake(){
-		moveOrientation = transform.forward;
-		moveSpeed = Random.Range (minSpeed,maxSpeed);
+
 	}
 	
 	// Update is called once per frame
@@ -25,14 +22,8 @@ public class MetorMove : MonoBehaviour {
 		//transform.Translate (moveOrientation * moveSpeed);
 	}
 
-	public void set(Vector3 destination, float minSpeed, float maxSpeed){
-		moveOrientation = Vector3.Normalize (destination);
-		this.minSpeed = minSpeed;
-		this.maxSpeed = maxSpeed;
-		moveSpeed = Random.Range (minSpeed, maxSpeed);
-	}
-
-	public void set(Vector3 destination){
-		moveOrientation = Vector3.Normalize (destination);
+	IEnumerator DestoryOnTime(){
+		yield return new WaitForSeconds (maxmumLifeTime);
+		Destroy (gameObject);
 	}
 }
