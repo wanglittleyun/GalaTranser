@@ -5,12 +5,18 @@ using System.Collections;
 public class MetorField : MonoBehaviour {
 	//Metor list
 	public GameObject[] Metors;
+	//the metor field is activated
+	public bool activated;
 	//the density of each wave
 	public float density;
 	//the range of the field
 	public float range;
 	//the time gap between two wave of metors
 	public float waveTimeGap = 3.0f;
+	//the maximum initial force of the metor
+	public float maxSpeed = 100000000.0f;
+	//the minmum initial force of the metor
+	public float minSpeed = 10000000.0f;
 	//max number of each wave
 	public const int maxNumber = 1000;
 	//The minum distance between each metor when first generated
@@ -25,7 +31,7 @@ public class MetorField : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		coordinates = new ArrayList ();
-		generateMetors ();
+		//generateMetors ();
 	}
 
 	void generateMetors(){
@@ -40,8 +46,10 @@ public class MetorField : MonoBehaviour {
 				coordinates.Add(pos);
 				int flag = Random.Range(0,7);
 				GameObject clone = (GameObject)Instantiate(Metors[flag], pos, Quaternion.identity);
+				clone.transform.parent = gameObject.transform;
 				Rigidbody rg = clone.GetComponent<Rigidbody>();
-				rg.AddForce(10000000.0f * transform.right);
+				float force = Random.Range (minSpeed, maxSpeed);
+				rg.AddForce(force * transform.right);
 			}
 		}
 	}
@@ -50,7 +58,7 @@ public class MetorField : MonoBehaviour {
 	void Update () {
 		coordinates.Clear ();
 		timeflag += Time.deltaTime;
-		if (timeflag >= waveTimeGap) {
+		if (timeflag >= waveTimeGap && activated) {
 			timeflag = 0;
 			generateMetors ();
 		}
