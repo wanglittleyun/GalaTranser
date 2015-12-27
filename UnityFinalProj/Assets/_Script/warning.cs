@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class warning : MonoBehaviour {
-	//public Camera camera;	
+
 	public GameObject Cross;	// the cross that show the ship is caught by the pointed planet
-	ArrayList nodes;
+	ArrayList nodes;	//use to manage the marked planets
+
 
 	// Use this for initialization
 	void Start () {

@@ -88,6 +88,7 @@
      <Compile Include="Assets\SpaceUnity\_Demo\Scrips\SU_Spaceship.cs" />
      <Compile Include="Assets\SpaceUnity\_Demo\Scrips\SU_Thruster.cs" />
      <Compile Include="Assets\Standalone Multi-Touch Input Module\Scripts\StandaloneMultiTouchInputModule.cs" />
+     <Compile Include="Assets\_Script\AlarmLight.cs" />
      <Compile Include="Assets\_Script\Asteroid.cs" />
      <Compile Include="Assets\_Script\AsteroidField.cs" />
      <Compile Include="Assets\_Script\Blackhole.cs" />
