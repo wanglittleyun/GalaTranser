@@ -18,7 +18,7 @@ public class warning : MonoBehaviour {
 	}
 
 	public void gravity_warn(Vector3 position,int flag){
-		Debug.Log ("ship warn");
+		//Debug.Log ("ship warn");
 		GameObject clone = (GameObject)Instantiate (Cross, position, Quaternion.identity);
 		clone.transform.localScale = new Vector3 (600, 600, 600);
 		nodes.Add (new Node(clone, flag));

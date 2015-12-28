@@ -43,7 +43,7 @@ public class PlanetGravity : MonoBehaviour {
 
 		if (other.tag == Tags.Player) {
 			warnship.gravity_warn(transform.position, planet_flag);
-			Debug.Log ("OnTrigger");
+			//Debug.Log ("OnTrigger");
 			inSight = true;
 		}
 	}
@@ -52,7 +52,7 @@ public class PlanetGravity : MonoBehaviour {
 
 		if (other.tag == Tags.Player) {
 			warnship.gravity_escape(planet_flag);
-			Debug.Log ("Exit trigger");
+			//Debug.Log ("Exit trigger");
 			inSight = false;
 		}
 	}
