@@ -17,7 +17,7 @@ public class pointer : MonoBehaviour {
         Vector3 targetDir = target.transform.position - player.transform.position;
         float step = speed * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-        Debug.DrawRay(transform.position, newDir, Color.red);
+        //Debug.DrawRay(transform.position, newDir, Color.red);
         transform.rotation = Quaternion.LookRotation(newDir);
     }
 }

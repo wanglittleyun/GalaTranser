@@ -8,7 +8,7 @@ public class move : MonoBehaviour {
     //public int flag=0;
     public float RotRate=1f; //旋轉率
     public float limitRotRate = 80; //限制旋轉度數
-    public float limitSpeed =20;//最高速限
+    public float limitSpeed =60;//最高速限
     public Scrollbar speedScrollbar;
     public Button stop_B;
     public Button turn_B;
@@ -45,7 +45,7 @@ public class move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //加減速度
-        if (speedScrollbar.value > 0.5f )
+        if (speedScrollbar.value > 0.55f )
         {
             //加速，直到上限
             if (speed + (speedScrollbar.value - 0.5f) * 0.2f > limitSpeed)
@@ -58,18 +58,21 @@ public class move : MonoBehaviour {
                     _thruster.StartThruster();//噴火
                 }
             }
-                speedScrollbar.value -= 0.15f;//慢慢收回加速器
+            speedScrollbar.value -= 0.1f;//慢慢收回加速器
         }
-        else if (speedScrollbar.value < 0.5f)
+        else if (speedScrollbar.value < 0.45f)
         {
             //減速，直到0
             if (speed - speedScrollbar.value * 0.2f < 0)
                 speed = 0f;
             else
-                speed -= 0.2f + speedScrollbar.value * 1f;//原本應該只有speedScrollbar.value * 0.2f，但會造成當拉到最下面不會減速的情況，所以多+0.2
-            
-            speedScrollbar.value += 0.15f;//慢慢收回加速器
-            
+                speed -= 0.0f + speedScrollbar.value * 3f;//原本應該只有speedScrollbar.value * 0.2f，但會造成當拉到最下面不會減速的情況，所以多+0.2
+
+            speedScrollbar.value += 0.1f;//慢慢收回加速器
+            foreach (SU_Thruster _thruster in thrusters)
+            {
+                _thruster.StopThruster();//停止噴火
+            }
         }
         else
         {
@@ -77,6 +80,7 @@ public class move : MonoBehaviour {
             {
                 _thruster.StopThruster();//停止噴火
             }
+            speedScrollbar.value = 0.5f;
         }
         //移動
         transform.Translate(transform.forward * Time.deltaTime * speed*5);
@@ -186,11 +190,18 @@ public class move : MonoBehaviour {
     }
     // called when hit renew unit
 	public void heal(){
-		if (Hp <= 90)
-			Hp += 10;
+		
+			Hp += 40;
+            if (Hp >= 100)
+                Hp = 100;
 	}
 	// Face to destination
+    public GameObject target;//目標
 	public void faceToDestination(){
-
+        Vector3 targetDir = target.transform.position - transform.position;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10f, 0.0F);
+        Debug.Log("觸發撞到邊界");
+        transform.rotation = Quaternion.LookRotation(newDir);
+        speed = 0f;
 	}
 }

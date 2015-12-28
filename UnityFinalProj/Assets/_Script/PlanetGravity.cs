@@ -13,7 +13,7 @@ public class PlanetGravity : MonoBehaviour {
 	// the power of distance
 	public float Power_distance = 2.0f; 
 	// the force when distance is 1
-	public float forceMagnitude = 100000.0f;
+	public float forceMagnitude = 100000000.0f;
 	// a constant flag to let the alarm and warning system know which
 	// planet if draging the space ship
 	public int planet_flag;

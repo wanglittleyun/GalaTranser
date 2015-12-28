@@ -19,8 +19,9 @@ public class BoundaryCollision : MonoBehaviour {
 
 	//Check Collision
 	void OnCollisionEnter(Collision other){
+        //Debug.Log("Collision Check0");
 		if (other.gameObject.tag == Tags.Player) {
-			//Debug.Log ("Collision Check");
+			//Debug.Log ("Collision Check1");
 			movecs.faceToDestination();
 		}
 	}
