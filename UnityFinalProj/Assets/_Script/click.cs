@@ -3,6 +3,7 @@ using System.Collections;
 
 public class click : MonoBehaviour {
     public GameObject Can; public GameObject StopCan;
+    public GameObject WinCan; public GameObject LoseCan;
 	// Use this for initialization
 	void Start () {
         StopCan.active = false;
@@ -25,7 +26,7 @@ public class click : MonoBehaviour {
     {
         Can.active = true;
         StopCan.active = true;
-        Application.LoadLevel("menuScene");
+        Application.LoadLevel("select_level");
     }
 
     public void continue_onClick()
@@ -38,5 +39,13 @@ public class click : MonoBehaviour {
     {
         
         Application.Quit();
+    }
+    public void again_onClick()
+    {
+        Can.active = true;
+        Time.timeScale = 1;
+        StopCan.active = false; LoseCan.active = false;
+        Application.LoadLevel("testGameview");
+        
     }
 }

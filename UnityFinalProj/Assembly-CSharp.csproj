@@ -98,6 +98,9 @@
      <Compile Include="Assets\_Script\GameController.cs" />
      <Compile Include="Assets\_Script\Menu.cs" />
      <Compile Include="Assets\_Script\MenuManager.cs" />
+     <Compile Include="Assets\_Script\Menu_Level.cs" />
+     <Compile Include="Assets\_Script\Menu_Main.cs" />
+     <Compile Include="Assets\_Script\Menu_Task.cs" />
      <Compile Include="Assets\_Script\MetorField.cs" />
      <Compile Include="Assets\_Script\MetorMove.cs" />
      <Compile Include="Assets\_Script\MetorTrigger.cs" />

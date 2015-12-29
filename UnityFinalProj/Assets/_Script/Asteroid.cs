@@ -24,7 +24,7 @@ public class Asteroid : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == Tags.Player) {
-			Debug.Log ("On Collision Enter");
+			//Debug.Log ("On Collision Enter");
             PlayerController.hit();
 		}
 	}

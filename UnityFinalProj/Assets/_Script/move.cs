@@ -169,7 +169,7 @@ public class move : MonoBehaviour {
                 
                 controller.Explosion(transform.position);
                 controller.gameover();//GG
-                Destroy(player);
+                //Destroy(player);
             }
             
 	}
@@ -187,6 +187,7 @@ public class move : MonoBehaviour {
     public void hit()
     {
         Hp -= 10;
+        speed = 0f;
     }
     // called when hit renew unit
 	public void heal(){
@@ -198,10 +199,11 @@ public class move : MonoBehaviour {
 	// Face to destination
     public GameObject target;//目標
 	public void faceToDestination(){
-        Vector3 targetDir = target.transform.position - transform.position;
+       /* Vector3 targetDir = target.transform.position - transform.position;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10f, 0.0F);
         Debug.Log("觸發撞到邊界");
-        transform.rotation = Quaternion.LookRotation(newDir);
+        transform.rotation = Quaternion.LookRotation(newDir);*/
+        transform.LookAt(target.transform.position);
         speed = 0f;
 	}
 }
