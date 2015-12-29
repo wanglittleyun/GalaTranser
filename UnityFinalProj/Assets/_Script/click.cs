@@ -45,7 +45,15 @@ public class click : MonoBehaviour {
         Can.active = true;
         Time.timeScale = 1;
         StopCan.active = false; LoseCan.active = false;
-        Application.LoadLevel("testGameview");
-        
+        if (PlayerPrefs.GetInt("NowLevel")==1)
+            Application.LoadLevel("level_1");
+        else if (PlayerPrefs.GetInt("NowLevel") == 2)
+            Application.LoadLevel("level_2");
+        else if (PlayerPrefs.GetInt("NowLevel") == 3)
+            Application.LoadLevel("level_3");
+        else if (PlayerPrefs.GetInt("NowLevel") == 4)
+            Application.LoadLevel("level_4");
+        else if (PlayerPrefs.GetInt("NowLevel") == 5)
+            Application.LoadLevel("level_5");
     }
 }
