@@ -55,7 +55,7 @@ public class move : MonoBehaviour {
                 speed = limitSpeed;
             else
             {
-                speed += (powerScrollbar.value - 0.5f) * 0.8f;
+                speed += (powerScrollbar.value - 0.5f) * 2f;
                 foreach (SU_Thruster _thruster in thrusters)
                 {
                     _thruster.StartThruster();//噴火
@@ -69,7 +69,7 @@ public class move : MonoBehaviour {
             if (speed - powerScrollbar.value * 0.2f < 0)
                 speed = 0f;
             else
-                speed -= 0.0f + powerScrollbar.value * 3f;//原本應該只有powerScrollbar.value * 0.2f，但會造成當拉到最下面不會減速的情況，所以多+0.2
+                speed -= (0.5f - powerScrollbar.value) * 4f;
 
             powerScrollbar.value += 0.1f;//慢慢收回加速器
             foreach (SU_Thruster _thruster in thrusters)

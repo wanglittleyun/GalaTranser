@@ -38,7 +38,7 @@ public class warning : MonoBehaviour {
 	}
 
 	public void gravity_warn(Vector3 position,int flag){
-//		Debug.Log ("ship warn");
+		//Debug.Log ("ship warn");
 		light_script.alarmOn = true;
 		GameObject clone = (GameObject)Instantiate (Cross, position, Quaternion.identity);
 		clone.transform.localScale = new Vector3 (600, 600, 600);
@@ -46,14 +46,14 @@ public class warning : MonoBehaviour {
 	}
 
 	public void gravity_escape(int flag){
-		Debug.Log ("hello world");
+        //Debug.Log("hello world" + nodes.Count);
 		for (int index = 0; index < nodes.Count; index ++) {
 			if(((Node)nodes[index]).flag == flag){
 				Destroy (((Node)nodes[index]).go);
 				nodes.Remove (nodes[index]);
 			}
 		}
-		Debug.Log (nodes.Count);
+		//Debug.Log (nodes.Count);
 		if (nodes.Count == 0) {
 			light_script.alarmOn = false;
 		}

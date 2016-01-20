@@ -11,7 +11,7 @@ public class PlanetGravity : MonoBehaviour {
 	// player
 	public GameObject player;
 	// the power of distance
-	public float Power_distance = 2.0f; 
+	public float Power_distance = 2.4f; 
 	// the force when distance is 1
 	public float forceMagnitude = 100000000.0f;
 	// a constant flag to let the alarm and warning system know which
@@ -26,6 +26,8 @@ public class PlanetGravity : MonoBehaviour {
 	void Start () {
 		inSight = false;
 		warnship = player.GetComponent<warning> ();
+        forceMagnitude = 50000000.0f;
+        Power_distance = 2.5f; 
 	}
 	
 	// Update is called once per frame
@@ -42,18 +44,20 @@ public class PlanetGravity : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 
 		if (other.tag == Tags.Player) {
-			warnship.gravity_warn(transform.position, planet_flag);
-//			Debug.Log ("OnTrigger");
-			inSight = true;
+			inSight = true;//Debug.Log ("OnTrigger");
+            warnship.gravity_warn(transform.position, planet_flag);
+			
+			
 		}
 	}
 	// change the state when palyer leave the range
 	void OnTriggerExit(Collider other){
 
 		if (other.tag == Tags.Player) {
-			warnship.gravity_escape(planet_flag);
-//			Debug.Log ("Exit trigger");
-			inSight = false;
+			inSight = false;//Debug.Log ("Exit trigger");
+            warnship.gravity_escape(planet_flag);
+		
+			
 		}
 	}
 
