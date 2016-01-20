@@ -9,9 +9,12 @@ public class move : MonoBehaviour {
     public float RotRate=1f; //旋轉率
     public float limitRotRate = 80; //限制旋轉度數
     public float limitSpeed =60;//最高速限
+    public Scrollbar powerScrollbar;
     public Scrollbar speedScrollbar;
+    public Image speedHandle;
+    public Image HpHandle;
     public Button stop_B;
-    public Button turn_B;
+    //public Button turn_B;
     public Text vText;
     public int Hp;
     float speed;//飛行速度
@@ -32,7 +35,7 @@ public class move : MonoBehaviour {
         controller = GameObject.FindGameObjectWithTag(Tags.GameController).GetComponent<GameController>();
         //forward =transform.forward;
         //flag = 0;
-        speedScrollbar.value = 0.5f;
+        powerScrollbar.value = 0.5f;
         speed = 0;
         //flag = 0;
         /*forwordX=0f;
@@ -45,30 +48,30 @@ public class move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //加減速度
-        if (speedScrollbar.value > 0.55f )
+        if (powerScrollbar.value > 0.55f)
         {
             //加速，直到上限
-            if (speed + (speedScrollbar.value - 0.5f) * 0.2f > limitSpeed)
+            if (speed + (powerScrollbar.value - 0.5f) * 0.2f > limitSpeed)
                 speed = limitSpeed;
             else
             {
-                speed += (speedScrollbar.value - 0.5f) * 0.8f;
+                speed += (powerScrollbar.value - 0.5f) * 0.8f;
                 foreach (SU_Thruster _thruster in thrusters)
                 {
                     _thruster.StartThruster();//噴火
                 }
             }
-            speedScrollbar.value -= 0.1f;//慢慢收回加速器
+            powerScrollbar.value -= 0.1f;//慢慢收回加速器
         }
-        else if (speedScrollbar.value < 0.45f)
+        else if (powerScrollbar.value < 0.45f)
         {
             //減速，直到0
-            if (speed - speedScrollbar.value * 0.2f < 0)
+            if (speed - powerScrollbar.value * 0.2f < 0)
                 speed = 0f;
             else
-                speed -= 0.0f + speedScrollbar.value * 3f;//原本應該只有speedScrollbar.value * 0.2f，但會造成當拉到最下面不會減速的情況，所以多+0.2
+                speed -= 0.0f + powerScrollbar.value * 3f;//原本應該只有powerScrollbar.value * 0.2f，但會造成當拉到最下面不會減速的情況，所以多+0.2
 
-            speedScrollbar.value += 0.1f;//慢慢收回加速器
+            powerScrollbar.value += 0.1f;//慢慢收回加速器
             foreach (SU_Thruster _thruster in thrusters)
             {
                 _thruster.StopThruster();//停止噴火
@@ -80,13 +83,28 @@ public class move : MonoBehaviour {
             {
                 _thruster.StopThruster();//停止噴火
             }
-            speedScrollbar.value = 0.5f;
+            powerScrollbar.value = 0.5f;
         }
         //移動
         transform.Translate(transform.forward * Time.deltaTime * speed*5);
         //顯示速度
-        vText.text = "velocity:" +  speed ;
-        
+        int s = System.Convert.ToInt32(speed*100.0f / limitSpeed);
+        vText.text =   s+"" ;
+        speedScrollbar.size = ((float)speed) / ((float)limitSpeed);
+        speedScrollbar.value = 0;
+        if (s > 70)//改變顏色
+        {
+            speedHandle.color = Color.red;
+        }
+        else if (s > 40)
+        {
+            speedHandle.color = Color.yellow;
+        }
+        else
+        {
+            speedHandle.color = Color.green;
+        }
+        //speedScrollbar.image.color=Color.green;
         //鏡頭位置
         sCamera.transform.position = transform.position - transform.forward * 5f + sCamera.transform.up * 0.8f;
         sCamera.transform.rotation = transform.rotation;
@@ -114,7 +132,7 @@ public class move : MonoBehaviour {
         Vector3 movementVector = inputVector;
 
         // If we have some input
-        if (inputVector.sqrMagnitude > 0.1f)
+        if (inputVector.sqrMagnitude > 0.0f)
         {//啟動搖桿
             //transform.forward = movementVector;
 
@@ -166,12 +184,21 @@ public class move : MonoBehaviour {
             
             if (Hp <= 0)
             {
-                
+                HpHandle.color = Color.grey;
                 controller.Explosion(transform.position);
                 controller.gameover();//GG
                 //Destroy(player);
+            }else if(Hp<=40){//改變血條顏色
+                HpHandle.color = Color.red;
             }
-            
+            else if (Hp < 70)
+            {//改變血條顏色
+                HpHandle.color = Color.yellow;
+            }
+            else 
+            {//改變血條顏色
+                HpHandle.color = Color.blue;
+            }
 	}
     /*public void turn_onClick()
     {
@@ -203,7 +230,8 @@ public class move : MonoBehaviour {
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10f, 0.0F);
         Debug.Log("觸發撞到邊界");
         transform.rotation = Quaternion.LookRotation(newDir);*/
-        transform.LookAt(target.transform.position);
+        transform.LookAt(target.transform.position);//看著目標物
+        transform.position = new Vector3(0, 0, transform.position.z);//回到中間
         speed = 0f;
 	}
 }

@@ -10,10 +10,7 @@ public class click : MonoBehaviour {
         Can.active = true;
 	}
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
     public void stop_onClick()
     {
         StopCan.active = true;

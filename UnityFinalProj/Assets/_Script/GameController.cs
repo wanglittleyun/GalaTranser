@@ -15,9 +15,15 @@ public class GameController : MonoBehaviour {
         LoseCan.active = false;
         WinCan.active = false;
         Time.timeScale = 1;
+        Debug.Log(Screen.width + "x" + Screen.height);//749x336電腦小螢幕 1600x729電腦大螢幕 手機1920x1080 960x540
+        
 	}
-	
-	
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Debug.Log(Screen.width + "x" + Screen.height);
+    }
 
     public void Explosion(Vector3 position) {
         Instantiate(explosionPrefab, position, Quaternion.identity);
